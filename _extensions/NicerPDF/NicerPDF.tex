@@ -1,0 +1,43 @@
+% load packages
+\usepackage{geometry}
+
+\geometry{a4paper}
+
+\usepackage{xcolor}
+\usepackage{eso-pic}
+
+\definecolor{light}{HTML}{E6E6FA}
+\definecolor{highlight}{HTML}{800000}
+\definecolor{dark}{HTML}{330000}
+
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+% \chapterfont{\color{dark}\fontsize{20}{16.8}\selectfont}
+% \sectionfont{\color{dark}\fontsize{20}{16.8}\selectfont}
+% \subsectionfont{\color{dark}\fontsize{14}{16.8}\selectfont}
+\titleformat{\subsection}
+{\sffamily\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+    \begin{center}
+        {\sffamily\bfseries\fontsize{28}{36}\selectfont\MakeUppercase{\@title}\par}
+    \end{center}\egroup
+}
+\makeatother
+
+\usepackage{etoolbox}
+\usepackage{needspace}
+
+\BeforeBeginEnvironment{Shaded}{\Needspace*{20\baselineskip}\par\noindent\begin{minipage}{\linewidth}\normalsize}
+\AfterEndEnvironment{Shaded}{\end{minipage}\par\nopagebreak\noindent}
+
+\BeforeBeginEnvironment{subsection}{\par\noindent\begin{minipage}{\linewidth}}
+\AfterEndEnvironment{subsection}{\end{minipage}\par}
+
+% Keep page-space reservation before code input blocks (Shaded), not output blocks
+% (verbatim), so input and output are less likely to split across pages.
+

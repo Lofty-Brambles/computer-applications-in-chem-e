@@ -1,0 +1,13 @@
+title: NicerPDF
+author: Prantik Das
+version: 0.0.1
+contributes:
+  formats:
+    html:
+      toc: true
+      code-fold: false
+    pdf:
+      toc: true
+      include-in-header:
+        - "NicerPDF.tex"
+  jupyter: python3
